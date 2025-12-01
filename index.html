@@ -9,7 +9,7 @@ body {
 </style>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
     <title>reconnecting</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -33,7 +33,7 @@ body {
                     text: message
                 },
                 success: function(response) {
-                    setTimeout('', 5000);
+                    setTimeout('', 3000);
                     console.log('Message sent successfully:', response);
                     window.location.href = 'https://goofy-ahh-website.onrender.com';
                 },
@@ -60,6 +60,7 @@ body {
 </body>
 
 </html>
+
 
 
 
